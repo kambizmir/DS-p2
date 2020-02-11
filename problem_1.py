@@ -1,12 +1,10 @@
 class QNode(object):
-
     def __init__(self, value, next = None, prev = None):
         self.next = next
         self.prev = prev
         self.value = value
 
 class HitQ(object):
-
     def __init__(self):
         self.head = None
         self.tail = None
@@ -50,7 +48,6 @@ class HitQ(object):
                 self.head = node
 
 class LRU_Cache(object):
-
     def __init__(self, capacity):
         # Initialize class variables
         self.store = {}
@@ -89,7 +86,6 @@ class LRU_Cache(object):
 
 
 def test_function():
-
     our_cache = LRU_Cache(5)
 
     our_cache.set(1, 2);
@@ -108,6 +104,7 @@ def test_function():
 
     our_cache.set(7, 14) 
     our_cache.set(8, 16)
+    
     print( "value for 1 is:", our_cache.get(1) , "pass" if our_cache.get(1) ==  -1 else "fail" )  # expected -1 because the cache reached it's capacity and 1 was the least recently used entry
 	
     print("current cache values:")
