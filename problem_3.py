@@ -1,6 +1,8 @@
 import sys
 from queue import PriorityQueue
 
+codeMap = {}
+
 class TreeNode:
      def __init__(self):
         self.data = None
@@ -8,15 +10,17 @@ class TreeNode:
         self.left = None
         self.right = None
 
-     def __lt__(self,other):
+     def __lt__(self, other):
         return self.frequency < other.frequency
 
-def preorder(node):
-    print(node.data,node.frequency)
+def preorder(node, prefix):
+    if node.data:    	
+    	codeMap[node.data] = prefix
+    	#print(node.data,node.frequency , prefix)
     if node.left:
-    	preorder(node.left)
+    	preorder(node.left, prefix + '0')
     if node.right:
-    	preorder(node.right)
+    	preorder(node.right, prefix + '1')
 
 
 def huffman_encoding(data):
@@ -51,26 +55,34 @@ def huffman_encoding(data):
         pq.put(t)
 
 
+    preorder(root, "")
+    #print(codeMap)
 
-    preorder(root)
+    encoded = ""
+    for c in data:
+    	encoded += codeMap[c]
 
-    #print("AAA",root.frequency, root.left.frequency, root.right.frequency)
-
-    #print (pq.qsize())
-
-
-    # while not pq.empty():
-    #     next_item = pq.get()
-    #     print(next_item.frequency,next_item.data)
+    return encoded , root
 
 
-
-    #print (sorted_tuples)
-
+    
 
 
 def huffman_decoding(data,tree):
-    pass
+    result = ""
+    node = tree
+    for c in data:
+        if c == '0':
+            node = node.left
+        else:
+            node = node.right
+        if node.data:
+            result += node.data
+            node = tree
+    return result
+
+
+
 
 if __name__ == "__main__":
     codes = {}
@@ -81,6 +93,24 @@ if __name__ == "__main__":
     print ("The content of the data is: {}\n".format(a_great_sentence))
 
     encoded_data, tree = huffman_encoding(a_great_sentence)
+
+    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    print ("The content of the encoded data is: {}\n".format(encoded_data))
+
+    decoded_data = huffman_decoding(encoded_data, tree)
+
+    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print ("The content of the encoded data is: {}\n".format(decoded_data))
+
+
+    print("\nTest 2 \n")
+
+    sentence2 = "Huffman algorithm is implemented!"
+
+    print ("The size of the data is: {}\n".format(sys.getsizeof(sentence2)))
+    print ("The content of the data is: {}\n".format(sentence2))
+
+    encoded_data, tree = huffman_encoding(sentence2)
 
     print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
     print ("The content of the encoded data is: {}\n".format(encoded_data))
