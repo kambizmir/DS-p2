@@ -57,6 +57,7 @@ class LRU_Cache(object):
 
     def get(self, key):
         # Retrieve item from provided key. Return -1 if nonexistent. 
+        # update the references queue
         if key in self.store:
             value = self.store[key][0]
             reference = self.store[key][1]
@@ -67,9 +68,9 @@ class LRU_Cache(object):
 
     def set(self, key, value):
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item. 
+        # update the references queue
 
-        if key in self.store:
-            current_value = self.store[key][0]
+        if key in self.store:            
             reference = self.store[key][1]
             self.store[key] = (value,reference)
             self.hitq.move_to_head(reference)
