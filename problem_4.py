@@ -128,44 +128,44 @@ user_cache = {}
 root_group = g1
 
 print("\nTest 2")
-print(is_user_in_group(u1, g1))
-print(is_user_in_group(u1, g2))
-print(is_user_in_group(u1, g3))
-print(is_user_in_group(u1, g4))
-print(is_user_in_group(u1, g5))
-print(is_user_in_group(u1, g6))
-print(is_user_in_group(u1, g7))
-print(is_user_in_group(u1, g8))
+print(is_user_in_group(u1, g1)) #True
+print(is_user_in_group(u1, g2)) #False
+print(is_user_in_group(u1, g3)) #False
+print(is_user_in_group(u1, g4)) #False
+print(is_user_in_group(u1, g5)) #False
+print(is_user_in_group(u1, g6)) #False
+print(is_user_in_group(u1, g7)) #False
+print(is_user_in_group(u1, g8)) #False
 
 print("\nTest 3")
-print(is_user_in_group(u2, g1))
-print(is_user_in_group(u2, g2))
-print(is_user_in_group(u2, g3))
-print(is_user_in_group(u2, g4))
-print(is_user_in_group(u2, g5))
-print(is_user_in_group(u2, g6))
-print(is_user_in_group(u2, g7))
-print(is_user_in_group(u2, g8))
+print(is_user_in_group(u2, g1)) #True
+print(is_user_in_group(u2, g2)) #True
+print(is_user_in_group(u2, g3)) #True
+print(is_user_in_group(u2, g4)) #True
+print(is_user_in_group(u2, g5)) #False
+print(is_user_in_group(u2, g6)) #False
+print(is_user_in_group(u2, g7)) #True
+print(is_user_in_group(u2, g8)) #False
 
 print("\nTest 4")
-print(is_user_in_group(u3, g1))
-print(is_user_in_group(u3, g2))
-print(is_user_in_group(u3, g3))
-print(is_user_in_group(u3, g4))
-print(is_user_in_group(u3, g5))
-print(is_user_in_group(u3, g6))
-print(is_user_in_group(u3, g7))
-print(is_user_in_group(u3, g8))
+print(is_user_in_group(u3, g1)) #True
+print(is_user_in_group(u3, g2)) #True
+print(is_user_in_group(u3, g3)) #True
+print(is_user_in_group(u3, g4)) #False
+print(is_user_in_group(u3, g5)) #False
+print(is_user_in_group(u3, g6)) #False
+print(is_user_in_group(u3, g7)) #True
+print(is_user_in_group(u3, g8)) #False
 
 print("\nTest 5")
-print(is_user_in_group(u4, g1))
-print(is_user_in_group(u4, g2))
-print(is_user_in_group(u4, g3))
-print(is_user_in_group(u4, g4))
-print(is_user_in_group(u4, g5))
-print(is_user_in_group(u4, g6))
-print(is_user_in_group(u4, g7))
-print(is_user_in_group(u4, g8))
+print(is_user_in_group(u4, g1)) #True
+print(is_user_in_group(u4, g2)) #True
+print(is_user_in_group(u4, g3)) #False
+print(is_user_in_group(u4, g4)) #False
+print(is_user_in_group(u4, g5)) #False
+print(is_user_in_group(u4, g6)) #True
+print(is_user_in_group(u4, g7)) #False
+print(is_user_in_group(u4, g8)) #True
 
 print("\ncache")
 print(user_cache)

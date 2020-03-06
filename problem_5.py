@@ -61,3 +61,14 @@ bc2.add("blockchain")
 bc2.traverse() 
 
 
+print("---------------")
+
+
+bc3 = Blockchain()
+bc3.add("this")
+bc3.add("is")
+bc3.add("the")
+bc3.add("third")
+bc3.add("example")
+
+bc3.traverse() 
