@@ -1,5 +1,5 @@
-The find_files is implemented recursively. The base case is when it sees a file and it will be apended to the result.
+The find_files is implemented recursively. The base case is when it sees a file and it will be appended to the result.
 If there is a folder, then the function calls itself for that folder. 
 
-The folder structure is a general tree structure and the time and space complexity of this recursive code is O(n) in which
-n is the number of tree nodes.
+The folder structure is a general tree structure. The recursive function creates a call stack in which every folder calls the function for its children nodes. The function needs to run for all the folder structure tree nodes which means that the time complexity of this recursive code is O(n) in which n is the number of tree nodes, knowing each function call has a constant execution time. 
+Similarly for each function call there is some space needed which means the space complexity of call stack is of O(n) too. The result list space in of O(m) in which m is the number of files with certain sufiix. m will be always smaller than n so we can say the overall space is of O(n).
