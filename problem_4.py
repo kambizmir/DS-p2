@@ -50,6 +50,13 @@ def is_user_in_group(user, group):
       group(class:Group): group to check user membership against
     """
 
+    if user is None or user is "":
+        print("No user to look for!")
+        return False
+    if not isinstance(group,Group):
+        print("The group is not valid!")
+        return False
+
     if user not in user_cache:
         search_groups_for_user(user, root_group, set())
 
@@ -169,4 +176,22 @@ print(is_user_in_group(u4, g8)) #True
 
 print("\ncache")
 print(user_cache)
+
+#########
+
+print("\nTest 6, edge case")
+print(is_user_in_group(None, g1)) # Print No user to look for!, return False
+
+print("\nTest 7, edge case")
+print(is_user_in_group("", g1)) # Print No user to look for!, return False
+
+print("\nTest 8, edge case")
+print(is_user_in_group(u1, None)) # Print The group is not valid!, return False
+
+print("\nTest 9, edge case")
+print(is_user_in_group(u1, "Group 10")) # Print The group is not valid!, return False
+
+
+
+
 
