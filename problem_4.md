@@ -6,6 +6,10 @@ I used a hash for storing groups to which a user belongs to. The hashing is lazy
 
 The hash maintains a set of groups which a user belongs to. The search_groups_for_user searches from the root recursively to populate the hash for particular user.
 
-The time complexity for the first time search of a user is of O(n) in which n is the number of groups. The space is of O(m * n) in which m is the number of users and n is the number of groups which a user belongs to.
+The search basically traverses the tree of groups and users and for eahc group calls the function, creating a call stack. The number of call stacks will be the number of groups in worst case which makes the time complexity for the first time search of a user of O(n) in which n is the number of groups. 
+
+The space for call stack is of O(n) too because each function call uses some constant space to call group.get_users() and group.get_groups() in function.
+
+The permanent space to store and maintain the cache is of O(m * n) in which m is the number of users and n is the number of groups which a user belongs to.
 
 If new groups are added or deleted, the hash should be updated to reflect the changes.
